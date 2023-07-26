@@ -1,0 +1,9 @@
+name: sensu-go-cli
+arch: x86_64
+platform: linux
+version: ${SENSU_GO_REVISION}
+release: ${SENSU_GO_RPM_REVISION}
+homepage: https://github.com/sensu/sensu-go
+contents:
+- src: build/sensu_go_extracted/bin/sensuctl
+  dst: /usr/bin/sensuctl

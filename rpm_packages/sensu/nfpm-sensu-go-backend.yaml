@@ -1,0 +1,15 @@
+name: sensu-go-backend
+arch: x86_64
+platform: linux
+version: ${SENSU_GO_REVISION}
+release: ${SENSU_GO_RPM_REVISION}
+homepage: https://github.com/sensu/sensu-go
+contents:
+- src: build/sensu_go_extracted/bin/sensu-backend
+  dst: /usr/sbin/sensu-backend
+- src: sources/sensu-go-backend/sensu-backend.service
+  dst: /usr/lib/systemd/system/sensu-backend.service
+scripts:
+  postinstall: sources/sensu-go-backend/postinstall.sh
+  preremove: sources/sensu-go-backend/preremove.sh
+  postremove: sources/sensu-go-backend/postremove.sh

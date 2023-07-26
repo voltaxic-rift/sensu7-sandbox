@@ -1,0 +1,15 @@
+name: sensu-go-agent
+arch: x86_64
+platform: linux
+version: ${SENSU_GO_REVISION}
+release: ${SENSU_GO_RPM_REVISION}
+homepage: https://github.com/sensu/sensu-go
+contents:
+- src: build/sensu_go_extracted/bin/sensu-agent
+  dst: /usr/sbin/sensu-agent
+- src: sources/sensu-go-agent/sensu-agent.service
+  dst: /usr/lib/systemd/system/sensu-agent.service
+scripts:
+  postinstall: sources/sensu-go-agent/postinstall.sh
+  preremove: sources/sensu-go-agent/preremove.sh
+  postremove: sources/sensu-go-agent/postremove.sh
